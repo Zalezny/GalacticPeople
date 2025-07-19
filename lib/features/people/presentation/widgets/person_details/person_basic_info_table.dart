@@ -18,27 +18,40 @@ class PersonBasicInfoTable extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: Table(
+          columnWidths: const {0: IntrinsicColumnWidth(), 1: FlexColumnWidth()},
           children: [
-            _infoRow('Birth Year', FormatUtils.formatBirthYear(person.birthYear)),
-            _infoRow('Hair Color', person.hairColor),
-            _infoRow('Gender', person.gender.name),
+            _tableRow('Birth Year', FormatUtils.formatBirthYear(person.birthYear)),
+            _tableSpacer(),
+            _tableRow('Hair Color', person.hairColor),
+            _tableSpacer(),
+            _tableRow('Gender', person.gender.name),
           ],
         ),
       ),
     );
   }
 
-  Widget _infoRow(String label, String? value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label, style: const TextStyle(color: Colors.white70)),
-          Text(value ?? 'Unknown', style: const TextStyle(color: Colors.white)),
-        ],
-      ),
+  TableRow _tableRow(String label, String value) {
+    return TableRow(
+      children: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Text(label, style: TextStyle(color: Colors.white70)),
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Text(value, style: const TextStyle(color: Colors.white)),
+          ),
+        ),
+      ],
     );
   }
+
+  TableRow _tableSpacer() => const TableRow(children: [SizedBox(height: 12), SizedBox(height: 12)]);
 }

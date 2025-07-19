@@ -3,7 +3,7 @@ import 'package:brival_recruitment_task/features/people/data/models/person_model
 import 'package:brival_recruitment_task/features/people/presentation/widgets/favorite_button.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:brival_recruitment_task/core/router/app_router.dart';
-import 'package:brival_recruitment_task/features/people/presentation/widgets/badge.dart';
+import 'package:brival_recruitment_task/features/people/presentation/widgets/people_badge.dart';
 import 'package:brival_recruitment_task/features/people/presentation/widgets/stat.dart';
 import '../../../../utils/format_utils.dart';
 
