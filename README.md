@@ -110,6 +110,3 @@ Dla films, species, vehicles i starships zostały pokazane tylko ich liczby porz
 <img width="500" alt="Screenshot_1752933991" src="https://github.com/user-attachments/assets/90c85aaf-6ac9-48f6-b102-25f3b423f6b8" />
 
 
-
-W razie pytań lub problemów – zapraszam do kontaktu!
-
