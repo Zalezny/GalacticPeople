@@ -1,5 +1,8 @@
 # BrivalRecruitmentTask
 
+Aplikacja z postaciami z Gwiezdnych Wojen - wykonana wraz z nieobwiązkową częścią
+
+
 ## Jak uruchomić projekt
 
 1. Upewnij się, że masz zainstalowane:
@@ -31,7 +34,7 @@ Jeśli pojawią się błędy związane z zależnościami lub buildem, wykonaj:
   ```
 
 ## Struktura projektu
-Projekt korzysta ze struktury **feature-first**:
+Projekt korzysta ze struktury **feature-first** + częściowe **Clean Architecture**:
 
 ```
 lib/
@@ -43,6 +46,8 @@ lib/
       presentation/ # UI, BLoC, widgety
   utils/
 ```
+
+Wybrałem ją, ponieważ nie została żadna inna wskazana (Jestem także obeznany w **layer-first**)
 
 ### Dlaczego feature-first?
 - Ułatwia skalowanie projektu – każdy feature jest odseparowany.
@@ -92,6 +97,19 @@ W projekcie warstwa `domain` została pominięta, ponieważ:
 
 ---
 
-Projekt był sprawdzany na różnych rozdzielczościach przy użyciu DevicePreview, ale testowany wyłącznie na systemie Android.
+Projekt był sprawdzany na różnych rozdzielczościach przy użyciu DevicePreview, testowany wyłącznie na systemie Android.
+
+## Screenshoty
+
+### Galaxy S20 
+<img width="500"  alt="Screenshot_1752930215" src="https://github.com/user-attachments/assets/0aac9425-b1a9-409e-8be6-6d1bb4265530" />
+<img width="500" alt="Screenshot_1752930228" src="https://github.com/user-attachments/assets/d6d6dfda-6aa1-414c-bc59-f194fc11232e" />
+<img width="500"  alt="Screenshot_1752930236" src="https://github.com/user-attachments/assets/cfa43411-350c-4e4b-bc08-3fc55958cec3" />
+<img width="500" alt="Screenshot_1752930242" src="https://github.com/user-attachments/assets/86ffce31-56d5-414e-9310-1cd9765c0176" />
+
+### Tablet
+<img width="500" height="1600" alt="Screenshot_1752928858" src="https://github.com/user-attachments/assets/e2c140e1-b914-4b7a-9263-aa1b98436a2c" />
+<img width="500" height="1600" alt="Screenshot_1752928862" src="https://github.com/user-attachments/assets/44067e71-4163-4d0a-b8c7-147802091e20" />
 
 W razie pytań lub problemów – zapraszam do kontaktu!
+
