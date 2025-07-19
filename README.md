@@ -1,6 +1,6 @@
 # BrivalRecruitmentTask
 
-Aplikacja z postaciami z Gwiezdnych Wojen - wykonana wraz z nieobwiązkową częścią
+Aplikacja z postaciami z Gwiezdnych Wojen - wykonana wraz z nieobowiązkową częścią
 
 
 ## Jak uruchomić projekt
