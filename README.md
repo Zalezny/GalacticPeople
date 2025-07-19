@@ -100,16 +100,14 @@ W projekcie warstwa `domain` została pominięta, ponieważ:
 Projekt był sprawdzany na różnych rozdzielczościach przy użyciu DevicePreview, testowany wyłącznie na systemie Android.
 
 ## Screenshoty
+<img width="500" alt="Screenshot_1752933967" src="https://github.com/user-attachments/assets/10eda777-0461-433f-b09e-02c6129f4bf5" />
+<img width="500"  alt="Screenshot_1752933971" src="https://github.com/user-attachments/assets/64f0780e-5ebd-4585-8ff7-384c90800212" />
 
-### Galaxy S20 
-<img width="500"  alt="Screenshot_1752930215" src="https://github.com/user-attachments/assets/0aac9425-b1a9-409e-8be6-6d1bb4265530" />
-<img width="500" alt="Screenshot_1752930228" src="https://github.com/user-attachments/assets/d6d6dfda-6aa1-414c-bc59-f194fc11232e" />
-<img width="500"  alt="Screenshot_1752930236" src="https://github.com/user-attachments/assets/cfa43411-350c-4e4b-bc08-3fc55958cec3" />
-<img width="500" alt="Screenshot_1752930242" src="https://github.com/user-attachments/assets/86ffce31-56d5-414e-9310-1cd9765c0176" />
 
-### Tablet
-<img width="500" height="1600" alt="Screenshot_1752928858" src="https://github.com/user-attachments/assets/e2c140e1-b914-4b7a-9263-aa1b98436a2c" />
-<img width="500" height="1600" alt="Screenshot_1752928862" src="https://github.com/user-attachments/assets/44067e71-4163-4d0a-b8c7-147802091e20" />
+<img width="500" alt="Screenshot_1752933979" src="https://github.com/user-attachments/assets/6c9caf6c-b0b2-4d7d-b7d1-96dec4b55b5c" />
+<img width="500" alt="Screenshot_1752933991" src="https://github.com/user-attachments/assets/90c85aaf-6ac9-48f6-b102-25f3b423f6b8" />
+
+
 
 W razie pytań lub problemów – zapraszam do kontaktu!
 
