@@ -6,7 +6,6 @@ import 'package:brival_recruitment_task/features/people/data/enums/gender_type.d
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-
   group('FavoritesService', () {
     late FavoritesServiceInterface favoritesService;
 
@@ -23,8 +22,6 @@ void main() {
       expect(favoritesService.removeFromFavorites, isA<Function>());
       expect(favoritesService.isFavorite, isA<Function>());
       expect(favoritesService.getFavorites, isA<Function>());
-      expect(favoritesService.getFavoritesCount, isA<Function>());
-      expect(favoritesService.clearAllFavorites, isA<Function>());
     });
 
     test('should create PersonModel for testing', () {

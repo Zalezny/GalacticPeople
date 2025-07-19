@@ -1,5 +1,4 @@
 import 'package:injectable/injectable.dart';
-import 'package:dio/dio.dart';
 import 'package:brival_recruitment_task/core/result.dart';
 
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
@@ -25,10 +24,8 @@ class PeopleRepositoryImpl implements PeopleRepository {
         final model = SwapiResponseModel.fromJson(raw);
         return Result.success(model);
       } else {
-        return Result.failure(Exception('Nieoczekiwany format odpowiedzi'));
+        return Result.failure(Exception('Non recognized  issue'));
       }
-    } on DioException catch (e) {
-      return Result.failure(e);
     } catch (e) {
       return Result.failure(e);
     }
@@ -39,8 +36,6 @@ class PeopleRepositoryImpl implements PeopleRepository {
     try {
       final response = await _apiService.getPerson(id);
       return Result.success(response);
-    } on DioException catch (e) {
-      return Result.failure(e);
     } catch (e) {
       return Result.failure(e);
     }
