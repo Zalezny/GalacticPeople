@@ -4,8 +4,8 @@ import 'package:brival_recruitment_task/core/result.dart';
 
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
 import 'package:brival_recruitment_task/features/people/data/models/swapi_response_model.dart';
-import 'package:brival_recruitment_task/features/people/data/repositories/people_repository.dart';
-import 'package:brival_recruitment_task/features/people/data/services/people_api_service.dart';
+import 'package:brival_recruitment_task/features/people/data/remote/repositories/people_repository.dart';
+import 'package:brival_recruitment_task/features/people/data/remote/services/people_api_service.dart';
 
 @Injectable(as: PeopleRepository)
 class PeopleRepositoryImpl implements PeopleRepository {

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:brival_recruitment_task/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/people/presentation/pages/people_page.dart';

@@ -10,21 +10,20 @@ import 'package:brival_recruitment_task/features/people/data/models/person_model
 import 'package:brival_recruitment_task/shared/widgets/default_loading_widget.dart';
 import 'package:brival_recruitment_task/shared/widgets/default_error_widget.dart';
 import 'package:brival_recruitment_task/features/people/presentation/widgets/person_details/person_details_widgets.dart';
+import 'package:brival_recruitment_task/features/people/presentation/widgets/favorite_button.dart';
 
 @RoutePage()
-class PersonDetailsPage extends StatelessWidget {
+class PersonDetailsPage extends StatelessWidget implements AutoRouteWrapper {
   final int personId;
 
   const PersonDetailsPage({super.key, required this.personId});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(create: (_) => getIt<PersonDetailsBloc>()..add(PersonDetailsEvent.loadPerson(personId)), child: const _PersonDetailsView());
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(create: (_) => getIt<PersonDetailsBloc>()..add(PersonDetailsEvent.loadPerson(personId)), child: this);
   }
-}
 
-class _PersonDetailsView extends StatelessWidget {
-  const _PersonDetailsView();
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +74,6 @@ class _PersonDetailsContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        // Sticky Header
         SliverAppBar(
           pinned: true,
           backgroundColor: const Color(0xFF0f172a).withValues(alpha: 0.95),
@@ -84,6 +82,7 @@ class _PersonDetailsContent extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => context.router.pop(),
           ),
+          actions: [FavoriteButton(person: person, size: 28, color: Colors.red)],
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -96,36 +95,28 @@ class _PersonDetailsContent extends StatelessWidget {
           ),
         ),
 
-        // Content
         SliverPadding(
           padding: const EdgeInsets.all(16),
           sliver: SliverList(
             delegate: SliverChildListDelegate([
               const SizedBox(height: 16),
 
-              // Hero Card
               HeroCard(person: person),
               const SizedBox(height: 24),
 
-              // Physical Stats Grid
               StatsGrid(person: person),
               const SizedBox(height: 16),
 
-              // Birth Year Card
               BirthYearCard(person: person),
               const SizedBox(height: 16),
 
-              // Physical Characteristics
               PhysicalCharacteristicsCard(person: person),
               const SizedBox(height: 16),
 
-              // Films Section
               if (person.films.isNotEmpty) ...[FilmsCard(person: person), const SizedBox(height: 16)],
 
-              // Starships Section
               if (person.starships.isNotEmpty) ...[StarshipsCard(person: person), const SizedBox(height: 16)],
 
-              // Vehicles Section
               if (person.vehicles.isNotEmpty) ...[VehiclesCard(person: person), const SizedBox(height: 16)],
 
               const SizedBox(height: 32),

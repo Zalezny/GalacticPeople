@@ -10,19 +10,16 @@ import 'package:brival_recruitment_task/features/people/data/models/person_model
 import 'package:brival_recruitment_task/core/router/app_router.dart';
 import 'package:brival_recruitment_task/shared/widgets/default_loading_widget.dart';
 import 'package:brival_recruitment_task/shared/widgets/default_error_widget.dart' show DefaultErrorWidget;
+import 'package:brival_recruitment_task/features/people/presentation/widgets/favorite_button.dart';
 
 @RoutePage()
-class PeoplePage extends StatelessWidget {
+class PeoplePage extends StatelessWidget implements AutoRouteWrapper {
   const PeoplePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(create: (_) => getIt<PeopleBloc>()..add(const PeopleEvent.loadPeople()), child: const _PeopleView());
+  Widget wrappedRoute(BuildContext context) {
+    return BlocProvider(create: (_) => getIt<PeopleBloc>()..add(const PeopleEvent.loadPeople()), child: this);
   }
-}
-
-class _PeopleView extends StatelessWidget {
-  const _PeopleView();
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +77,10 @@ class _PeopleList extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
             sliver: SliverList(
-              delegate: SliverChildBuilderDelegate((context, idx) => _PersonCard(person: people[idx]), childCount: people.length),
+              delegate: SliverChildBuilderDelegate(
+                (context, idx) => _PersonCard(key: ValueKey(people[idx].url), person: people[idx]),
+                childCount: people.length,
+              ),
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 32)),
@@ -92,7 +92,7 @@ class _PeopleList extends StatelessWidget {
 
 class _PersonCard extends StatelessWidget {
   final PersonModel person;
-  const _PersonCard({required this.person});
+  const _PersonCard({super.key, required this.person});
 
   String getGenderIcon(String gender) {
     switch (gender.toLowerCase()) {
@@ -123,7 +123,6 @@ class _PersonCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          // Extract ID from URL (assuming URL format: .../people/{id}/)
           final urlParts = person.url.split('/');
           final id = int.tryParse(urlParts.where((s) => s.isNotEmpty).last) ?? 1;
           context.router.push(PersonDetailsRoute(personId: id));
@@ -133,19 +132,20 @@ class _PersonCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header: ikona płci + imię
               Row(
                 children: [
                   Text(person.gender.icon(), style: const TextStyle(fontSize: 28)),
                   const SizedBox(width: 8),
-                  Text(
-                    person.name,
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                  Expanded(
+                    child: Text(
+                      person.name,
+                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
                   ),
+                  FavoriteButton(key: ValueKey(person.url), person: person, size: 20),
                 ],
               ),
               const SizedBox(height: 12),
-              // Info: height, mass
               Row(
                 children: [
                   Icon(Icons.height, color: Colors.blue[300], size: 18),
@@ -158,7 +158,6 @@ class _PersonCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 8),
-              // Birth year
               Row(
                 children: [
                   Icon(Icons.cake, color: Colors.yellow[600], size: 18),
@@ -167,7 +166,6 @@ class _PersonCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 8),
-              // Badge: hair, eyes, skin
               Wrap(
                 spacing: 8,
                 runSpacing: 4,
@@ -178,7 +176,6 @@ class _PersonCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 8),
-              // Stats
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
