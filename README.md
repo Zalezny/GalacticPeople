@@ -99,6 +99,8 @@ W projekcie warstwa `domain` została pominięta, ponieważ:
 
 Projekt był sprawdzany na różnych rozdzielczościach przy użyciu DevicePreview, testowany wyłącznie na systemie Android.
 
+Dla films, species, vehicles i starships zostały pokazane tylko ich liczby porządkowe (bez pobierania kolejnych informacji)
+
 ## Screenshoty
 <img width="500" alt="Screenshot_1752933967" src="https://github.com/user-attachments/assets/10eda777-0461-433f-b09e-02c6129f4bf5" />
 <img width="500"  alt="Screenshot_1752933971" src="https://github.com/user-attachments/assets/64f0780e-5ebd-4585-8ff7-384c90800212" />
