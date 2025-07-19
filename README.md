@@ -1,4 +1,4 @@
-# BrivalRecruitmentTask
+# GalacticPeople
 
 Aplikacja z postaciami z Gwiezdnych Wojen - wykonana wraz z nieobowiązkową częścią
 
