@@ -15,7 +15,6 @@ class ApiClient {
       ),
     );
 
-    _dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true, logPrint: (obj) => print("Błąd: ${obj.toString()}")));
   }
 
   Dio get dio => _dio;
