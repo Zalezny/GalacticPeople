@@ -41,3 +41,50 @@ class PeopleRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [PersonDetailsPage]
+class PersonDetailsRoute extends PageRouteInfo<PersonDetailsRouteArgs> {
+  PersonDetailsRoute({
+    Key? key,
+    required int personId,
+    List<PageRouteInfo>? children,
+  }) : super(
+         PersonDetailsRoute.name,
+         args: PersonDetailsRouteArgs(key: key, personId: personId),
+         initialChildren: children,
+       );
+
+  static const String name = 'PersonDetailsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PersonDetailsRouteArgs>();
+      return PersonDetailsPage(key: args.key, personId: args.personId);
+    },
+  );
+}
+
+class PersonDetailsRouteArgs {
+  const PersonDetailsRouteArgs({this.key, required this.personId});
+
+  final Key? key;
+
+  final int personId;
+
+  @override
+  String toString() {
+    return 'PersonDetailsRouteArgs{key: $key, personId: $personId}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PersonDetailsRouteArgs) return false;
+    return key == other.key && personId == other.personId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ personId.hashCode;
+}

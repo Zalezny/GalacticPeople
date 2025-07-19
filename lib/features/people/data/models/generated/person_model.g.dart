@@ -14,7 +14,7 @@ _PersonModel _$PersonModelFromJson(Map<String, dynamic> json) => _PersonModel(
   skinColor: json['skin_color'] as String,
   eyeColor: json['eye_color'] as String,
   birthYear: json['birth_year'] as String,
-  gender: json['gender'] as String,
+  gender: $enumDecode(_$GenderTypeEnumMap, json['gender']),
   homeworld: json['homeworld'] as String,
   films: (json['films'] as List<dynamic>).map((e) => e as String).toList(),
   species: (json['species'] as List<dynamic>).map((e) => e as String).toList(),
@@ -38,7 +38,7 @@ Map<String, dynamic> _$PersonModelToJson(_PersonModel instance) =>
       'skin_color': instance.skinColor,
       'eye_color': instance.eyeColor,
       'birth_year': instance.birthYear,
-      'gender': instance.gender,
+      'gender': _$GenderTypeEnumMap[instance.gender]!,
       'homeworld': instance.homeworld,
       'films': instance.films,
       'species': instance.species,
@@ -48,3 +48,11 @@ Map<String, dynamic> _$PersonModelToJson(_PersonModel instance) =>
       'edited': instance.edited,
       'url': instance.url,
     };
+
+const _$GenderTypeEnumMap = {
+  GenderType.male: 'male',
+  GenderType.female: 'female',
+  GenderType.nA: 'n/a',
+  GenderType.none: 'none',
+  GenderType.hermaphrodite: 'hermaphrodite',
+};

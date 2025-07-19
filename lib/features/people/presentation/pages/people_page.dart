@@ -7,6 +7,9 @@ import 'package:brival_recruitment_task/features/people/presentation/blocs/peopl
 import 'package:brival_recruitment_task/core/di/injection.dart';
 import 'package:brival_recruitment_task/core/result.dart';
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
+import 'package:brival_recruitment_task/core/router/app_router.dart';
+import 'package:brival_recruitment_task/shared/widgets/default_loading_widget.dart';
+import 'package:brival_recruitment_task/shared/widgets/default_error_widget.dart' show DefaultErrorWidget;
 
 @RoutePage()
 class PeoplePage extends StatelessWidget {
@@ -23,84 +26,22 @@ class _PeopleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [Color(0xFF0f172a), Color(0xFF1e293b)], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-      ),
-      child: BlocBuilder<PeopleBloc, PeopleState>(
-        builder: (context, state) {
-          return state.when(
-            initial: () => const SizedBox.shrink(),
-            loading: () => const _LoadingWidget(),
-            loaded: (result) => result.when(
-              success: (people) => _PeopleList(people: people),
-              failure: (error) => _ErrorWidget(error: error.toString()),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class _LoadingWidget extends StatelessWidget {
-  const _LoadingWidget();
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const CircularProgressIndicator(color: Colors.yellow, strokeWidth: 4),
-          const SizedBox(height: 24),
-          Text(
-            'Loading characters...',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-          const SizedBox(height: 8),
-          Text('Fetching data from a galaxy far, far away...', style: TextStyle(color: Colors.white70)),
-        ],
-      ),
-    );
-  }
-}
-
-class _ErrorWidget extends StatelessWidget {
-  final String error;
-  const _ErrorWidget({required this.error});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline, color: Colors.red[400], size: 48),
-            const SizedBox(height: 16),
-            Text(
-              'Connection Error',
-              style: TextStyle(color: Colors.red[400], fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              error,
-              style: TextStyle(color: Colors.white70, fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[700],
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [Color(0xFF0f172a), Color(0xFF1e293b)], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+        ),
+        child: BlocBuilder<PeopleBloc, PeopleState>(
+          builder: (context, state) {
+            return state.when(
+              initial: () => const SizedBox.shrink(),
+              loading: () => const DefaultLoadingWidget(),
+              loaded: (result) => result.when(
+                success: (people) => _PeopleList(people: people),
+                failure: (error) => DefaultErrorWidget(error: error.toString()),
               ),
-              onPressed: () => context.read<PeopleBloc>().add(const PeopleEvent.refreshPeople()),
-              icon: const Icon(Icons.refresh, size: 20),
-              label: const Text('Try Again'),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
@@ -179,66 +120,75 @@ class _PersonCard extends StatelessWidget {
         side: BorderSide(color: Colors.blueGrey[800]!),
       ),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header: ikona płci + imię
-            Row(
-              children: [
-                Text(getGenderIcon(person.gender), style: const TextStyle(fontSize: 28)),
-                const SizedBox(width: 8),
-                Text(
-                  person.name,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            // Info: height, mass
-            Row(
-              children: [
-                Icon(Icons.height, color: Colors.blue[300], size: 18),
-                const SizedBox(width: 4),
-                Text(formatHeight(person.height), style: const TextStyle(color: Colors.white70, fontSize: 13)),
-                const SizedBox(width: 16),
-                Icon(Icons.monitor_weight, color: Colors.green[300], size: 18),
-                const SizedBox(width: 4),
-                Text(formatMass(person.mass), style: const TextStyle(color: Colors.white70, fontSize: 13)),
-              ],
-            ),
-            const SizedBox(height: 8),
-            // Birth year
-            Row(
-              children: [
-                Icon(Icons.cake, color: Colors.yellow[600], size: 18),
-                const SizedBox(width: 4),
-                Text('Born: ${formatBirthYear(person.birthYear)}', style: const TextStyle(color: Colors.white70, fontSize: 13)),
-              ],
-            ),
-            const SizedBox(height: 8),
-            // Badge: hair, eyes, skin
-            Wrap(
-              spacing: 8,
-              runSpacing: 4,
-              children: [
-                if (person.hairColor != 'n/a' && person.hairColor != 'none') _Badge(label: 'Hair: ${person.hairColor}'),
-                _Badge(label: 'Eyes: ${person.eyeColor}'),
-                _Badge(label: 'Skin: ${person.skinColor}'),
-              ],
-            ),
-            const SizedBox(height: 8),
-            // Stats
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _Stat(label: 'Films', value: person.films.length),
-                _Stat(label: 'Vehicles', value: person.vehicles.length),
-                _Stat(label: 'Starships', value: person.starships.length),
-              ],
-            ),
-          ],
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          // Extract ID from URL (assuming URL format: .../people/{id}/)
+          final urlParts = person.url.split('/');
+          final id = int.tryParse(urlParts.where((s) => s.isNotEmpty).last) ?? 1;
+          context.router.push(PersonDetailsRoute(personId: id));
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header: ikona płci + imię
+              Row(
+                children: [
+                  Text(person.gender.icon(), style: const TextStyle(fontSize: 28)),
+                  const SizedBox(width: 8),
+                  Text(
+                    person.name,
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              // Info: height, mass
+              Row(
+                children: [
+                  Icon(Icons.height, color: Colors.blue[300], size: 18),
+                  const SizedBox(width: 4),
+                  Text(formatHeight(person.height), style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                  const SizedBox(width: 16),
+                  Icon(Icons.monitor_weight, color: Colors.green[300], size: 18),
+                  const SizedBox(width: 4),
+                  Text(formatMass(person.mass), style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // Birth year
+              Row(
+                children: [
+                  Icon(Icons.cake, color: Colors.yellow[600], size: 18),
+                  const SizedBox(width: 4),
+                  Text('Born: ${formatBirthYear(person.birthYear)}', style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // Badge: hair, eyes, skin
+              Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                children: [
+                  if (person.hairColor != 'n/a' && person.hairColor != 'none') _Badge(label: 'Hair: ${person.hairColor}'),
+                  _Badge(label: 'Eyes: ${person.eyeColor}'),
+                  _Badge(label: 'Skin: ${person.skinColor}'),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // Stats
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _Stat(label: 'Films', value: person.films.length),
+                  _Stat(label: 'Vehicles', value: person.vehicles.length),
+                  _Stat(label: 'Starships', value: person.starships.length),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

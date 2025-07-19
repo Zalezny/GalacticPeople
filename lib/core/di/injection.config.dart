@@ -19,6 +19,8 @@ import 'package:brival_recruitment_task/features/people/data/services/people_api
     as _i401;
 import 'package:brival_recruitment_task/features/people/presentation/blocs/people_bloc.dart'
     as _i190;
+import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details_bloc.dart'
+    as _i333;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -37,6 +39,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i190.PeopleBloc>(
       () => _i190.PeopleBloc(gh<_i281.PeopleRepository>()),
+    );
+    gh.factory<_i333.PersonDetailsBloc>(
+      () => _i333.PersonDetailsBloc(gh<_i281.PeopleRepository>()),
     );
     return this;
   }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PersonModel {
 
- String get name; String get height; String get mass;@JsonKey(name: 'hair_color') String get hairColor;@JsonKey(name: 'skin_color') String get skinColor;@JsonKey(name: 'eye_color') String get eyeColor;@JsonKey(name: 'birth_year') String get birthYear; String get gender; String get homeworld; List<String> get films; List<String> get species; List<String> get vehicles; List<String> get starships; String get created; String get edited; String get url;
+ String get name; String get height; String get mass;@JsonKey(name: 'hair_color') String get hairColor;@JsonKey(name: 'skin_color') String get skinColor;@JsonKey(name: 'eye_color') String get eyeColor;@JsonKey(name: 'birth_year') String get birthYear; GenderType get gender; String get homeworld; List<String> get films; List<String> get species; List<String> get vehicles; List<String> get starships; String get created; String get edited; String get url;
 /// Create a copy of PersonModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $PersonModelCopyWith<$Res>  {
   factory $PersonModelCopyWith(PersonModel value, $Res Function(PersonModel) _then) = _$PersonModelCopyWithImpl;
 @useResult
 $Res call({
- String name, String height, String mass,@JsonKey(name: 'hair_color') String hairColor,@JsonKey(name: 'skin_color') String skinColor,@JsonKey(name: 'eye_color') String eyeColor,@JsonKey(name: 'birth_year') String birthYear, String gender, String homeworld, List<String> films, List<String> species, List<String> vehicles, List<String> starships, String created, String edited, String url
+ String name, String height, String mass,@JsonKey(name: 'hair_color') String hairColor,@JsonKey(name: 'skin_color') String skinColor,@JsonKey(name: 'eye_color') String eyeColor,@JsonKey(name: 'birth_year') String birthYear, GenderType gender, String homeworld, List<String> films, List<String> species, List<String> vehicles, List<String> starships, String created, String edited, String url
 });
 
 
@@ -75,7 +75,7 @@ as String,skinColor: null == skinColor ? _self.skinColor : skinColor // ignore: 
 as String,eyeColor: null == eyeColor ? _self.eyeColor : eyeColor // ignore: cast_nullable_to_non_nullable
 as String,birthYear: null == birthYear ? _self.birthYear : birthYear // ignore: cast_nullable_to_non_nullable
 as String,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as String,homeworld: null == homeworld ? _self.homeworld : homeworld // ignore: cast_nullable_to_non_nullable
+as GenderType,homeworld: null == homeworld ? _self.homeworld : homeworld // ignore: cast_nullable_to_non_nullable
 as String,films: null == films ? _self.films : films // ignore: cast_nullable_to_non_nullable
 as List<String>,species: null == species ? _self.species : species // ignore: cast_nullable_to_non_nullable
 as List<String>,vehicles: null == vehicles ? _self.vehicles : vehicles // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  String gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  GenderType gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PersonModel() when $default != null:
 return $default(_that.name,_that.height,_that.mass,_that.hairColor,_that.skinColor,_that.eyeColor,_that.birthYear,_that.gender,_that.homeworld,_that.films,_that.species,_that.vehicles,_that.starships,_that.created,_that.edited,_that.url);case _:
@@ -189,7 +189,7 @@ return $default(_that.name,_that.height,_that.mass,_that.hairColor,_that.skinCol
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  String gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  GenderType gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)  $default,) {final _that = this;
 switch (_that) {
 case _PersonModel():
 return $default(_that.name,_that.height,_that.mass,_that.hairColor,_that.skinColor,_that.eyeColor,_that.birthYear,_that.gender,_that.homeworld,_that.films,_that.species,_that.vehicles,_that.starships,_that.created,_that.edited,_that.url);case _:
@@ -209,7 +209,7 @@ return $default(_that.name,_that.height,_that.mass,_that.hairColor,_that.skinCol
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  String gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String height,  String mass, @JsonKey(name: 'hair_color')  String hairColor, @JsonKey(name: 'skin_color')  String skinColor, @JsonKey(name: 'eye_color')  String eyeColor, @JsonKey(name: 'birth_year')  String birthYear,  GenderType gender,  String homeworld,  List<String> films,  List<String> species,  List<String> vehicles,  List<String> starships,  String created,  String edited,  String url)?  $default,) {final _that = this;
 switch (_that) {
 case _PersonModel() when $default != null:
 return $default(_that.name,_that.height,_that.mass,_that.hairColor,_that.skinColor,_that.eyeColor,_that.birthYear,_that.gender,_that.homeworld,_that.films,_that.species,_that.vehicles,_that.starships,_that.created,_that.edited,_that.url);case _:
@@ -234,7 +234,7 @@ class _PersonModel implements PersonModel {
 @override@JsonKey(name: 'skin_color') final  String skinColor;
 @override@JsonKey(name: 'eye_color') final  String eyeColor;
 @override@JsonKey(name: 'birth_year') final  String birthYear;
-@override final  String gender;
+@override final  GenderType gender;
 @override final  String homeworld;
  final  List<String> _films;
 @override List<String> get films {
@@ -301,7 +301,7 @@ abstract mixin class _$PersonModelCopyWith<$Res> implements $PersonModelCopyWith
   factory _$PersonModelCopyWith(_PersonModel value, $Res Function(_PersonModel) _then) = __$PersonModelCopyWithImpl;
 @override @useResult
 $Res call({
- String name, String height, String mass,@JsonKey(name: 'hair_color') String hairColor,@JsonKey(name: 'skin_color') String skinColor,@JsonKey(name: 'eye_color') String eyeColor,@JsonKey(name: 'birth_year') String birthYear, String gender, String homeworld, List<String> films, List<String> species, List<String> vehicles, List<String> starships, String created, String edited, String url
+ String name, String height, String mass,@JsonKey(name: 'hair_color') String hairColor,@JsonKey(name: 'skin_color') String skinColor,@JsonKey(name: 'eye_color') String eyeColor,@JsonKey(name: 'birth_year') String birthYear, GenderType gender, String homeworld, List<String> films, List<String> species, List<String> vehicles, List<String> starships, String created, String edited, String url
 });
 
 
@@ -328,7 +328,7 @@ as String,skinColor: null == skinColor ? _self.skinColor : skinColor // ignore: 
 as String,eyeColor: null == eyeColor ? _self.eyeColor : eyeColor // ignore: cast_nullable_to_non_nullable
 as String,birthYear: null == birthYear ? _self.birthYear : birthYear // ignore: cast_nullable_to_non_nullable
 as String,gender: null == gender ? _self.gender : gender // ignore: cast_nullable_to_non_nullable
-as String,homeworld: null == homeworld ? _self.homeworld : homeworld // ignore: cast_nullable_to_non_nullable
+as GenderType,homeworld: null == homeworld ? _self.homeworld : homeworld // ignore: cast_nullable_to_non_nullable
 as String,films: null == films ? _self._films : films // ignore: cast_nullable_to_non_nullable
 as List<String>,species: null == species ? _self._species : species // ignore: cast_nullable_to_non_nullable
 as List<String>,vehicles: null == vehicles ? _self._vehicles : vehicles // ignore: cast_nullable_to_non_nullable

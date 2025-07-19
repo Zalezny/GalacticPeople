@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../enums/gender_type.dart';
+
 part 'generated/person_model.freezed.dart';
 part 'generated/person_model.g.dart';
 
@@ -13,7 +15,7 @@ abstract class PersonModel with _$PersonModel {
     @JsonKey(name: 'skin_color') required String skinColor,
     @JsonKey(name: 'eye_color') required String eyeColor,
     @JsonKey(name: 'birth_year') required String birthYear,
-    required String gender,
+    required GenderType gender,
     required String homeworld,
     required List<String> films,
     required List<String> species,
