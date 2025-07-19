@@ -9,5 +9,6 @@ part 'generated/swapi_response_model.g.dart';
 abstract class SwapiResponseModel with _$SwapiResponseModel {
   const factory SwapiResponseModel({required List<PersonModel> results}) = _SwapiResponseModel;
 
-  factory SwapiResponseModel.fromJson(Map<String, dynamic> json) => _$SwapiResponseModelFromJson(json);
+  factory SwapiResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$SwapiResponseModelFromJson(json);
 }

@@ -18,33 +18,6 @@ class _PeopleApiService implements PeopleApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<SwapiResponseModel> getPeople() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<SwapiResponseModel>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/people/',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SwapiResponseModel _value;
-    try {
-      _value = SwapiResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
   Future<PersonModel> getPerson(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

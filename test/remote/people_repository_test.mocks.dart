@@ -3,14 +3,12 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i4;
 
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart'
-    as _i3;
-import 'package:brival_recruitment_task/features/people/data/models/swapi_response_model.dart'
     as _i2;
 import 'package:brival_recruitment_task/features/people/data/remote/services/people_api_service.dart'
-    as _i4;
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -27,53 +25,34 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeSwapiResponseModel_0 extends _i1.SmartFake
-    implements _i2.SwapiResponseModel {
-  _FakeSwapiResponseModel_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
-}
-
-class _FakePersonModel_1 extends _i1.SmartFake implements _i3.PersonModel {
-  _FakePersonModel_1(Object parent, Invocation parentInvocation)
+class _FakePersonModel_0 extends _i1.SmartFake implements _i2.PersonModel {
+  _FakePersonModel_0(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
 /// A class which mocks [PeopleApiService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPeopleApiService extends _i1.Mock implements _i4.PeopleApiService {
+class MockPeopleApiService extends _i1.Mock implements _i3.PeopleApiService {
   MockPeopleApiService() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.SwapiResponseModel> getPeople() =>
-      (super.noSuchMethod(
-            Invocation.method(#getPeople, []),
-            returnValue: _i5.Future<_i2.SwapiResponseModel>.value(
-              _FakeSwapiResponseModel_0(
-                this,
-                Invocation.method(#getPeople, []),
-              ),
-            ),
-          )
-          as _i5.Future<_i2.SwapiResponseModel>);
-
-  @override
-  _i5.Future<_i3.PersonModel> getPerson(int? id) =>
+  _i4.Future<_i2.PersonModel> getPerson(int? id) =>
       (super.noSuchMethod(
             Invocation.method(#getPerson, [id]),
-            returnValue: _i5.Future<_i3.PersonModel>.value(
-              _FakePersonModel_1(this, Invocation.method(#getPerson, [id])),
+            returnValue: _i4.Future<_i2.PersonModel>.value(
+              _FakePersonModel_0(this, Invocation.method(#getPerson, [id])),
             ),
           )
-          as _i5.Future<_i3.PersonModel>);
+          as _i4.Future<_i2.PersonModel>);
 
   @override
-  _i5.Future<dynamic> getPeopleRaw() =>
+  _i4.Future<dynamic> getPeopleRaw() =>
       (super.noSuchMethod(
             Invocation.method(#getPeopleRaw, []),
-            returnValue: _i5.Future<dynamic>.value(),
+            returnValue: _i4.Future<dynamic>.value(),
           )
-          as _i5.Future<dynamic>);
+          as _i4.Future<dynamic>);
 }

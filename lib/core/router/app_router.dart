@@ -9,5 +9,8 @@ part 'app_router.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   @override
-  List<AutoRoute> get routes => [AutoRoute(page: PeopleRoute.page, initial: true), AutoRoute(page: PersonDetailsRoute.page)];
+  List<AutoRoute> get routes => [
+    AutoRoute(page: PeopleRoute.page, initial: true),
+    AutoRoute(page: PersonDetailsRoute.page),
+  ];
 }

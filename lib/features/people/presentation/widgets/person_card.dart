@@ -30,10 +30,25 @@ class PersonCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(person.name, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                    Text(
+                      person.name,
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                    ),
                     const SizedBox(height: 4),
-                    Text('Height: ${person.height}cm', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[600])),
-                    Text('Mass: ${person.mass}kg', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[600])),
+                    Text(
+                      'Height: ${person.height}cm',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+                    ),
+                    Text(
+                      'Mass: ${person.mass}kg',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+                    ),
                   ],
                 ),
               ),

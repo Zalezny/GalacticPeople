@@ -9,7 +9,7 @@ import 'package:device_preview/device_preview.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configureDependencies();
-  runApp(DevicePreview(enabled: false, builder: (context) => MyApp()));
+  runApp(DevicePreview(enabled: true, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {

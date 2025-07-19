@@ -25,7 +25,11 @@ class FilmsCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Films (${person.films.length})',
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ],
             ),
@@ -36,7 +40,10 @@ class FilmsCard extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 8),
                   padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.05), borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.05),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -46,9 +53,15 @@ class FilmsCard extends StatelessWidget {
                           children: [
                             Text(
                               'Film ${index + 1}',
-                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            Text('Episode ${index + 1}', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                            Text(
+                              'Episode ${index + 1}',
+                              style: TextStyle(color: Colors.white70, fontSize: 12),
+                            ),
                           ],
                         ),
                       ),

@@ -33,7 +33,8 @@ class PhysicalCharacteristicsCard extends StatelessWidget {
             const SizedBox(height: 16),
             Column(
               children: [
-                if (person.hairColor != 'n/a' && person.hairColor != 'none') CharacteristicRow(label: 'Hair Color', value: person.hairColor),
+                if (person.hairColor != 'n/a' && person.hairColor != 'none')
+                  CharacteristicRow(label: 'Hair Color', value: person.hairColor),
                 CharacteristicRow(label: 'Eye Color', value: person.eyeColor),
                 CharacteristicRow(label: 'Skin Color', value: person.skinColor),
               ],

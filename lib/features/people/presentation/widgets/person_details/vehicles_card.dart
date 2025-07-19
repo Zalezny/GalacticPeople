@@ -25,7 +25,11 @@ class VehiclesCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Vehicles (${person.vehicles.length})',
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ],
             ),
@@ -36,7 +40,10 @@ class VehiclesCard extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 8),
                   padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.05), borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.05),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   child: Text(
                     'Vehicle ${index + 1}',
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

@@ -6,7 +6,13 @@ class StatCard extends StatelessWidget {
   final String label;
   final String value;
 
-  const StatCard({super.key, required this.icon, required this.iconColor, required this.label, required this.value});
+  const StatCard({
+    super.key,
+    required this.icon,
+    required this.iconColor,
+    required this.label,
+    required this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,11 @@ class StatCard extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               value,
-              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
           ],
         ),

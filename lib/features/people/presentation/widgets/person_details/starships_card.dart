@@ -25,7 +25,11 @@ class StarshipsCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Starships (${person.starships.length})',
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ],
             ),
@@ -36,7 +40,10 @@ class StarshipsCard extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 8),
                   padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.05), borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.05),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -46,8 +53,14 @@ class StarshipsCard extends StatelessWidget {
                       ),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(color: Colors.blueGrey[800], borderRadius: BorderRadius.circular(4)),
-                        child: Text('Starfighter', style: TextStyle(color: Colors.white70, fontSize: 10)),
+                        decoration: BoxDecoration(
+                          color: Colors.blueGrey[800],
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          'Starfighter',
+                          style: TextStyle(color: Colors.white70, fontSize: 10),
+                        ),
                       ),
                     ],
                   ),

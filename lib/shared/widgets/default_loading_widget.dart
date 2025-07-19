@@ -19,7 +19,10 @@ class DefaultLoadingWidget extends StatelessWidget {
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(height: 8),
-          Text(subtitle ?? 'Fetching data from a galaxy far, far away...', style: TextStyle(color: Colors.white70)),
+          Text(
+            subtitle ?? 'Fetching data from a galaxy far, far away...',
+            style: TextStyle(color: Colors.white70),
+          ),
         ],
       ),
     );

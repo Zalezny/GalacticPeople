@@ -21,7 +21,8 @@ class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
     final result = await _peopleRepository.getPeople();
     result.when(
       success: (response) => emit(PeopleState.loaded(Result.success(response.results))),
-      failure: (error) => emit(PeopleState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
+      failure: (error) =>
+          emit(PeopleState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
     );
   }
 
@@ -30,7 +31,8 @@ class PeopleBloc extends Bloc<PeopleEvent, PeopleState> {
     final result = await _peopleRepository.getPeople();
     result.when(
       success: (response) => emit(PeopleState.loaded(Result.success(response.results))),
-      failure: (error) => emit(PeopleState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
+      failure: (error) =>
+          emit(PeopleState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
     );
   }
 }

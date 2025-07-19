@@ -31,12 +31,17 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     }
   }
 
-  Future<void> _onRemoveFromFavorites(RemoveFromFavorites event, Emitter<FavoritesState> emit) async {
+  Future<void> _onRemoveFromFavorites(
+    RemoveFromFavorites event,
+    Emitter<FavoritesState> emit,
+  ) async {
     try {
       emit(state.copyWith(isLoading: true));
       final success = await _favoritesService.removeFromFavorites(event.person);
       if (success) {
-        final updatedFavorites = state.favorites.where((person) => person.created != event.person.created).toList();
+        final updatedFavorites = state.favorites
+            .where((person) => person.created != event.person.created)
+            .toList();
         emit(state.copyWith(isLoading: false, favorites: updatedFavorites));
       } else {
         emit(state.copyWith(isLoading: false));
@@ -49,7 +54,9 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   Future<void> _onCheckIfFavorite(CheckIfFavorite event, Emitter<FavoritesState> emit) async {
     try {
       final isFavorite = await _favoritesService.isFavorite(event.person);
-      emit(state.copyWith(favoriteStatus: {...state.favoriteStatus, event.person.created: isFavorite}));
+      emit(
+        state.copyWith(favoriteStatus: {...state.favoriteStatus, event.person.created: isFavorite}),
+      );
     } catch (e) {
       emit(state.copyWith(error: 'Failed to check favorite status'));
     }
@@ -79,11 +86,19 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
       if (isCurrentlyFavorite) {
         final success = await _favoritesService.removeFromFavorites(event.person);
         if (success) {
-          final updatedFavorites = state.favorites.where((person) => person.created != event.person.created).toList();
+          final updatedFavorites = state.favorites
+              .where((person) => person.created != event.person.created)
+              .toList();
           final updatedStatus = Map<String, bool>.from(state.favoriteStatus);
           updatedStatus[event.person.created] = false;
 
-          emit(state.copyWith(isLoading: false, favorites: updatedFavorites, favoriteStatus: updatedStatus));
+          emit(
+            state.copyWith(
+              isLoading: false,
+              favorites: updatedFavorites,
+              favoriteStatus: updatedStatus,
+            ),
+          );
         } else {
           emit(state.copyWith(isLoading: false));
         }
@@ -93,7 +108,13 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
           final updatedStatus = Map<String, bool>.from(state.favoriteStatus);
           updatedStatus[event.person.created] = true;
 
-          emit(state.copyWith(isLoading: false, favorites: [...state.favorites, event.person], favoriteStatus: updatedStatus));
+          emit(
+            state.copyWith(
+              isLoading: false,
+              favorites: [...state.favorites, event.person],
+              favoriteStatus: updatedStatus,
+            ),
+          );
         } else {
           emit(state.copyWith(isLoading: false));
         }

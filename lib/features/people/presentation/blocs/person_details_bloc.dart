@@ -21,7 +21,9 @@ class PersonDetailsBloc extends Bloc<PersonDetailsEvent, PersonDetailsState> {
     final result = await _peopleRepository.getPerson(event.id);
     result.when(
       success: (person) => emit(PersonDetailsState.loaded(Result.success(person))),
-      failure: (error) => emit(PersonDetailsState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
+      failure: (error) => emit(
+        PersonDetailsState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error))),
+      ),
     );
   }
 
@@ -30,7 +32,9 @@ class PersonDetailsBloc extends Bloc<PersonDetailsEvent, PersonDetailsState> {
     final result = await _peopleRepository.getPerson(event.id);
     result.when(
       success: (person) => emit(PersonDetailsState.loaded(Result.success(person))),
-      failure: (error) => emit(PersonDetailsState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error)))),
+      failure: (error) => emit(
+        PersonDetailsState.loaded(Result.failure(ErrorMessages.mapErrorToUserMessage(error))),
+      ),
     );
   }
 }

@@ -23,8 +23,6 @@ class PersonDetailsPage extends StatelessWidget implements AutoRouteWrapper {
     return BlocProvider(create: (_) => getIt<PersonDetailsBloc>()..add(PersonDetailsEvent.loadPerson(personId)), child: this);
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,23 +50,6 @@ class PersonDetailsPage extends StatelessWidget implements AutoRouteWrapper {
 class _PersonDetailsContent extends StatelessWidget {
   final PersonModel person;
   const _PersonDetailsContent({required this.person});
-
-  String getGenderIcon(String gender) {
-    switch (gender.toLowerCase()) {
-      case 'male':
-        return '👨';
-      case 'female':
-        return '👩';
-      case 'n/a':
-      case 'none':
-      default:
-        return '🤖';
-    }
-  }
-
-  String formatHeight(String height) => height == 'unknown' ? 'Unknown' : '$height cm';
-  String formatMass(String mass) => mass == 'unknown' ? 'Unknown' : '$mass kg';
-  String formatBirthYear(String birthYear) => birthYear == 'unknown' ? 'Unknown' : birthYear;
 
   @override
   Widget build(BuildContext context) {
@@ -100,25 +81,15 @@ class _PersonDetailsContent extends StatelessWidget {
           sliver: SliverList(
             delegate: SliverChildListDelegate([
               const SizedBox(height: 16),
-
               HeroCard(person: person),
               const SizedBox(height: 24),
-
+              PersonBasicInfoTable(person: person),
+              const SizedBox(height: 16),
               StatsGrid(person: person),
               const SizedBox(height: 16),
-
-              BirthYearCard(person: person),
-              const SizedBox(height: 16),
-
-              PhysicalCharacteristicsCard(person: person),
-              const SizedBox(height: 16),
-
               if (person.films.isNotEmpty) ...[FilmsCard(person: person), const SizedBox(height: 16)],
-
               if (person.starships.isNotEmpty) ...[StarshipsCard(person: person), const SizedBox(height: 16)],
-
               if (person.vehicles.isNotEmpty) ...[VehiclesCard(person: person), const SizedBox(height: 16)],
-
               const SizedBox(height: 32),
             ]),
           ),
