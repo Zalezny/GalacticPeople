@@ -1,4 +1,6 @@
 import 'package:injectable/injectable.dart';
+import 'package:dio/dio.dart';
+import 'package:brival_recruitment_task/core/result.dart';
 
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
 import 'package:brival_recruitment_task/features/people/data/models/swapi_response_model.dart';
@@ -12,20 +14,35 @@ class PeopleRepositoryImpl implements PeopleRepository {
   PeopleRepositoryImpl(this._apiService);
 
   @override
-  Future<SwapiResponseModel> getPeople() async {
+  Future<Result<SwapiResponseModel>> getPeople() async {
     try {
-      return await _apiService.getPeople();
+      final raw = await _apiService.getPeopleRaw();
+      if (raw is List) {
+        final map = {'results': raw};
+        final model = SwapiResponseModel.fromJson(map);
+        return Result.success(model);
+      } else if (raw is Map<String, dynamic>) {
+        final model = SwapiResponseModel.fromJson(raw);
+        return Result.success(model);
+      } else {
+        return Result.failure(Exception('Nieoczekiwany format odpowiedzi'));
+      }
+    } on DioException catch (e) {
+      return Result.failure(e);
     } catch (e) {
-      throw Exception('Failed to fetch people: $e');
+      return Result.failure(e);
     }
   }
 
   @override
-  Future<PersonModel> getPerson(int id) async {
+  Future<Result<PersonModel>> getPerson(int id) async {
     try {
-      return await _apiService.getPerson(id);
+      final response = await _apiService.getPerson(id);
+      return Result.success(response);
+    } on DioException catch (e) {
+      return Result.failure(e);
     } catch (e) {
-      throw Exception('Failed to fetch person: $e');
+      return Result.failure(e);
     }
   }
 }

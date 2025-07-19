@@ -4,7 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
 import 'package:brival_recruitment_task/features/people/data/models/swapi_response_model.dart';
 
-part 'people_api_service.g.dart';
+part 'generated/people_api_service.g.dart';
 
 @RestApi()
 abstract class PeopleApiService {
@@ -15,4 +15,7 @@ abstract class PeopleApiService {
 
   @GET('/people/{id}/')
   Future<PersonModel> getPerson(@Path('id') int id);
+
+  @GET('/people/')
+  Future<dynamic> getPeopleRaw();
 }

@@ -25,3 +25,19 @@ class HomeRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [PeoplePage]
+class PeopleRoute extends PageRouteInfo<void> {
+  const PeopleRoute({List<PageRouteInfo>? children})
+    : super(PeopleRoute.name, initialChildren: children);
+
+  static const String name = 'PeopleRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const PeoplePage());
+    },
+  );
+}

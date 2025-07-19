@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'swapi_response_model.dart';
+part of '../swapi_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -8,9 +8,6 @@ part of 'swapi_response_model.dart';
 
 _SwapiResponseModel _$SwapiResponseModelFromJson(Map<String, dynamic> json) =>
     _SwapiResponseModel(
-      count: (json['count'] as num).toInt(),
-      next: json['next'] as String?,
-      previous: json['previous'] as String?,
       results: (json['results'] as List<dynamic>)
           .map((e) => PersonModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -18,8 +15,5 @@ _SwapiResponseModel _$SwapiResponseModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$SwapiResponseModelToJson(_SwapiResponseModel instance) =>
     <String, dynamic>{
-      'count': instance.count,
-      'next': instance.next,
-      'previous': instance.previous,
-      'results': instance.results,
+      'results': instance.results.map((e) => e.toJson()).toList(),
     };

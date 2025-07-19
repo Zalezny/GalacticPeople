@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'swapi_response_model.dart';
+part of '../swapi_response_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SwapiResponseModel {
 
- int get count;@JsonKey(name: 'next') String? get next;@JsonKey(name: 'previous') String? get previous; List<PersonModel> get results;
+ List<PersonModel> get results;
 /// Create a copy of SwapiResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SwapiResponseModelCopyWith<SwapiResponseModel> get copyWith => _$SwapiResponseM
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SwapiResponseModel&&(identical(other.count, count) || other.count == count)&&(identical(other.next, next) || other.next == next)&&(identical(other.previous, previous) || other.previous == previous)&&const DeepCollectionEquality().equals(other.results, results));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SwapiResponseModel&&const DeepCollectionEquality().equals(other.results, results));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,count,next,previous,const DeepCollectionEquality().hash(results));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(results));
 
 @override
 String toString() {
-  return 'SwapiResponseModel(count: $count, next: $next, previous: $previous, results: $results)';
+  return 'SwapiResponseModel(results: $results)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $SwapiResponseModelCopyWith<$Res>  {
   factory $SwapiResponseModelCopyWith(SwapiResponseModel value, $Res Function(SwapiResponseModel) _then) = _$SwapiResponseModelCopyWithImpl;
 @useResult
 $Res call({
- int count,@JsonKey(name: 'next') String? next,@JsonKey(name: 'previous') String? previous, List<PersonModel> results
+ List<PersonModel> results
 });
 
 
@@ -65,12 +65,9 @@ class _$SwapiResponseModelCopyWithImpl<$Res>
 
 /// Create a copy of SwapiResponseModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? count = null,Object? next = freezed,Object? previous = freezed,Object? results = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? results = null,}) {
   return _then(_self.copyWith(
-count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
-as int,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
-as String?,previous: freezed == previous ? _self.previous : previous // ignore: cast_nullable_to_non_nullable
-as String?,results: null == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
+results: null == results ? _self.results : results // ignore: cast_nullable_to_non_nullable
 as List<PersonModel>,
   ));
 }
@@ -156,10 +153,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int count, @JsonKey(name: 'next')  String? next, @JsonKey(name: 'previous')  String? previous,  List<PersonModel> results)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PersonModel> results)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SwapiResponseModel() when $default != null:
-return $default(_that.count,_that.next,_that.previous,_that.results);case _:
+return $default(_that.results);case _:
   return orElse();
 
 }
@@ -177,10 +174,10 @@ return $default(_that.count,_that.next,_that.previous,_that.results);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int count, @JsonKey(name: 'next')  String? next, @JsonKey(name: 'previous')  String? previous,  List<PersonModel> results)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PersonModel> results)  $default,) {final _that = this;
 switch (_that) {
 case _SwapiResponseModel():
-return $default(_that.count,_that.next,_that.previous,_that.results);case _:
+return $default(_that.results);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +194,10 @@ return $default(_that.count,_that.next,_that.previous,_that.results);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int count, @JsonKey(name: 'next')  String? next, @JsonKey(name: 'previous')  String? previous,  List<PersonModel> results)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PersonModel> results)?  $default,) {final _that = this;
 switch (_that) {
 case _SwapiResponseModel() when $default != null:
-return $default(_that.count,_that.next,_that.previous,_that.results);case _:
+return $default(_that.results);case _:
   return null;
 
 }
@@ -212,12 +209,9 @@ return $default(_that.count,_that.next,_that.previous,_that.results);case _:
 @JsonSerializable()
 
 class _SwapiResponseModel implements SwapiResponseModel {
-  const _SwapiResponseModel({required this.count, @JsonKey(name: 'next') this.next, @JsonKey(name: 'previous') this.previous, required final  List<PersonModel> results}): _results = results;
+  const _SwapiResponseModel({required final  List<PersonModel> results}): _results = results;
   factory _SwapiResponseModel.fromJson(Map<String, dynamic> json) => _$SwapiResponseModelFromJson(json);
 
-@override final  int count;
-@override@JsonKey(name: 'next') final  String? next;
-@override@JsonKey(name: 'previous') final  String? previous;
  final  List<PersonModel> _results;
 @override List<PersonModel> get results {
   if (_results is EqualUnmodifiableListView) return _results;
@@ -239,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SwapiResponseModel&&(identical(other.count, count) || other.count == count)&&(identical(other.next, next) || other.next == next)&&(identical(other.previous, previous) || other.previous == previous)&&const DeepCollectionEquality().equals(other._results, _results));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SwapiResponseModel&&const DeepCollectionEquality().equals(other._results, _results));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,count,next,previous,const DeepCollectionEquality().hash(_results));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_results));
 
 @override
 String toString() {
-  return 'SwapiResponseModel(count: $count, next: $next, previous: $previous, results: $results)';
+  return 'SwapiResponseModel(results: $results)';
 }
 
 
@@ -259,7 +253,7 @@ abstract mixin class _$SwapiResponseModelCopyWith<$Res> implements $SwapiRespons
   factory _$SwapiResponseModelCopyWith(_SwapiResponseModel value, $Res Function(_SwapiResponseModel) _then) = __$SwapiResponseModelCopyWithImpl;
 @override @useResult
 $Res call({
- int count,@JsonKey(name: 'next') String? next,@JsonKey(name: 'previous') String? previous, List<PersonModel> results
+ List<PersonModel> results
 });
 
 
@@ -276,12 +270,9 @@ class __$SwapiResponseModelCopyWithImpl<$Res>
 
 /// Create a copy of SwapiResponseModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? count = null,Object? next = freezed,Object? previous = freezed,Object? results = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? results = null,}) {
   return _then(_SwapiResponseModel(
-count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
-as int,next: freezed == next ? _self.next : next // ignore: cast_nullable_to_non_nullable
-as String?,previous: freezed == previous ? _self.previous : previous // ignore: cast_nullable_to_non_nullable
-as String?,results: null == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
+results: null == results ? _self._results : results // ignore: cast_nullable_to_non_nullable
 as List<PersonModel>,
   ));
 }

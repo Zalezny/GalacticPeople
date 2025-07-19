@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -16,7 +15,7 @@ class ApiClient {
       ),
     );
 
-    _dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true, logPrint: (obj) => debugPrint(obj.toString())));
+    _dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true, logPrint: (obj) => print("Błąd: ${obj.toString()}")));
   }
 
   Dio get dio => _dio;
