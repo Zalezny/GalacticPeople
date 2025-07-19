@@ -3,8 +3,8 @@ import 'package:injectable/injectable.dart';
 
 import 'package:brival_recruitment_task/core/result.dart';
 import 'package:brival_recruitment_task/features/people/data/remote/repositories/people_repository.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details_event.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details_state.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details/person_details_event.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details/person_details_state.dart';
 import 'package:brival_recruitment_task/utils/error_messages.dart';
 
 @injectable

@@ -22,12 +22,12 @@ import 'package:brival_recruitment_task/features/people/data/remote/repositories
     as _i787;
 import 'package:brival_recruitment_task/features/people/data/remote/services/people_api_service.dart'
     as _i347;
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_bloc.dart'
-    as _i513;
-import 'package:brival_recruitment_task/features/people/presentation/blocs/people_bloc.dart'
-    as _i190;
-import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details_bloc.dart'
-    as _i333;
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_bloc.dart'
+    as _i699;
+import 'package:brival_recruitment_task/features/people/presentation/blocs/people_list/people_bloc.dart'
+    as _i918;
+import 'package:brival_recruitment_task/features/people/presentation/blocs/person_details/person_details_bloc.dart'
+    as _i206;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -46,17 +46,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i614.FavoritesServiceInterface>(
       () => favoritesModule.favoritesService,
     );
-    gh.factory<_i513.FavoritesBloc>(
-      () => _i513.FavoritesBloc(gh<_i614.FavoritesServiceInterface>()),
+    gh.factory<_i699.FavoritesBloc>(
+      () => _i699.FavoritesBloc(gh<_i614.FavoritesServiceInterface>()),
     );
     gh.factory<_i557.PeopleRepository>(
       () => _i787.PeopleRepositoryImpl(gh<_i347.PeopleApiService>()),
     );
-    gh.factory<_i190.PeopleBloc>(
-      () => _i190.PeopleBloc(gh<_i557.PeopleRepository>()),
+    gh.factory<_i918.PeopleBloc>(
+      () => _i918.PeopleBloc(gh<_i557.PeopleRepository>()),
     );
-    gh.factory<_i333.PersonDetailsBloc>(
-      () => _i333.PersonDetailsBloc(gh<_i557.PeopleRepository>()),
+    gh.factory<_i206.PersonDetailsBloc>(
+      () => _i206.PersonDetailsBloc(gh<_i557.PeopleRepository>()),
     );
     return this;
   }

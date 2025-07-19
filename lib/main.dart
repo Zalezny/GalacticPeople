@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:brival_recruitment_task/core/router/app_router.dart';
 import 'package:brival_recruitment_task/core/di/injection.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_bloc.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_event.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_bloc.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_event.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() async {

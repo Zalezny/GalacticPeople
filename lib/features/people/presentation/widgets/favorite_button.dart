@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:brival_recruitment_task/features/people/data/models/person_model.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_bloc.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_event.dart';
-import 'package:brival_recruitment_task/features/people/presentation/blocs/favorites_state.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_bloc.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_event.dart';
+import 'package:brival_recruitment_task/features/people/presentation/blocs/favorite/favorites_state.dart';
 
 class FavoriteButton extends StatelessWidget {
   final PersonModel person;
